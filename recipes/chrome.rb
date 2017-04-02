@@ -1,4 +1,4 @@
-include_recipe 'dev::gdebi'
+include_recipe 'chef.cookbook.dev::gdebi'
 
 remote_file 'Get package from google' do
   action :nothing

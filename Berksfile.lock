@@ -1,5 +1,5 @@
 DEPENDENCIES
-  dev
+  chef.cookbook.dev
     path: .
     metadata: true
 
@@ -7,11 +7,11 @@ GRAPH
   build-essential (8.0.0)
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
-  compat_resource (12.16.3)
-  dev (0.1.0)
+  chef.cookbook.dev (0.1.0)
     git (~> 6.0)
     libarchive (>= 0.0.0)
     resolver (>= 0.0.0)
+  compat_resource (12.16.3)
   dmg (3.1.0)
   git (6.0.0)
     build-essential (>= 0.0.0)
@@ -20,11 +20,11 @@ GRAPH
   libarchive (0.7.0)
   mingw (2.0.0)
     seven_zip (>= 0.0.0)
-  ohai (5.0.0)
+  ohai (5.0.2)
   resolver (2.0.1)
   seven_zip (2.0.2)
     windows (>= 1.2.2)
-  windows (3.0.2)
+  windows (3.0.3)
     ohai (>= 4.0.0)
   yum-epel (2.1.1)
     compat_resource (>= 12.16.3)

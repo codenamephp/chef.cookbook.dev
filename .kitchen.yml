@@ -1,0 +1,14 @@
+---
+driver:
+  name: vagrant
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: debian-8.7
+
+suites:
+  - name: default
+    run_list:
+      - recipe[chef.cookbook.dev::default]
+    attributes:
