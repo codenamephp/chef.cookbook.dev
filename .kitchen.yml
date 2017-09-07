@@ -5,10 +5,11 @@ provisioner:
   name: chef_solo
 
 platforms:
-  - name: debian-8.7
+  - name: debian-9.1
 
 suites:
   - name: default
     run_list:
-      - recipe[chef.cookbook.dev::default]
+      - recipe[chef.cookbook.dev::chrome]
+      - recipe[chef.cookbook.dev::openjdk8]
     attributes:

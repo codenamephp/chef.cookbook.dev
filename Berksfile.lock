@@ -11,6 +11,7 @@ GRAPH
     git (~> 6.0)
     libarchive (>= 0.0.0)
     resolver (>= 0.0.0)
+    zipfile (~> 0.2.0)
   compat_resource (12.16.3)
   dmg (3.1.0)
   git (6.0.0)
@@ -28,3 +29,4 @@ GRAPH
     ohai (>= 4.0.0)
   yum-epel (2.1.1)
     compat_resource (>= 12.16.3)
+  zipfile (0.2.0)
