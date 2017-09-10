@@ -13,6 +13,7 @@ suites:
     run_list:
       - recipe[chef.cookbook.dev::chrome]
       - recipe[chef.cookbook.dev::openjdk8]
+      - recipe[chef.cookbook.dev::dnsmasq]
     attributes:
     verifier:
       inspec_tests:
