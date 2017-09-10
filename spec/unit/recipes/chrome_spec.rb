@@ -16,5 +16,13 @@ describe 'chef.cookbook.dev::chrome' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+    
+    it 'adds google apt repo' do
+      expect(chef_run).to add_apt_repository('google-chrome')
+    end
+
+    it 'installs google chrome' do
+      expect(chef_run).to install_package('Install google chrome')
+    end
   end
 end
