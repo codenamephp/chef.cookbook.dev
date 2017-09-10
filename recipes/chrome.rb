@@ -1,23 +1,18 @@
-include_recipe '::gdebi'
+#
+# Cookbook:: chef.cookbook.dev
+# Recipe:: chrome
+#
+# Copyright:: 2017, The Authors, All Rights Reserved.
 
-remote_file 'Get package from google' do
-  action :nothing
-  path "#{Chef::Config['file_cache_path']}/google-chrome-stable.deb"
-  source 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-  not_if "dpkg -l google-chrome-stable"
-  subscribes :create, 'package[add gdebi package]', :immediately
-  notifies :run, 'execute[add chrome from package]', :immediately
+apt_repository 'google-chrome' do
+  uri        'http://dl.google.com/linux/chrome/deb/'
+  repo_name 'google-chrome'
+  arch 'amd64'
+  distribution 'stable'
+  components ['main']
+  key 'https://dl.google.com/linux/linux_signing_key.pub'
 end
 
-execute 'add chrome from package' do
-  command "sudo gdebi --n #{Chef::Config['file_cache_path']}/google-chrome-stable.deb"
-  action :nothing
-  notifies :delete, 'file[Delete package download]', :immediately
-end
-
-file 'Delete package download' do
-  action :nothing
-  path "#{Chef::Config['file_cache_path']}/google-chrome-stable.deb"
-  backup false
-  only_if { ::File.exist?("#{Chef::Config['file_cache_path']}/google-chrome-stable.deb") }
+package 'Install google chrome' do
+  package_name 'google-chrome-stable'
 end

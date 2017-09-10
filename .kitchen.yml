@@ -3,7 +3,8 @@ driver:
   name: vagrant
 provisioner:
   name: chef_solo
-
+verifier:
+  name: inspec
 platforms:
   - name: debian-9.1
 
@@ -13,3 +14,6 @@ suites:
       - recipe[chef.cookbook.dev::chrome]
       - recipe[chef.cookbook.dev::openjdk8]
     attributes:
+    verifier:
+      inspec_tests:
+        - test/smoke/default
