@@ -12,6 +12,5 @@ source_url 'https://github.com/codenamephp/chef.cookbook.dev' if respond_to?(:so
 depends 'libarchive'
 depends 'resolver'
 depends 'git', '~> 6.0'
-depends 'zipfile', '~> 0.2.0'
 
 supports 'debian', '~>9.1'

@@ -2,13 +2,10 @@ include_recipe 'resolver'
 
 package 'purge avahi-deamon' do
   action :purge
-  only_if 'dpkg -l avahi-deamon' 
 end
 
 package 'install dnsmasq' do
   package_name 'dnsmasq'
-  action :install
-  not_if 'dpkg -l dnsmasq' 
 end
 
 template 'update dnsmasq config' do
