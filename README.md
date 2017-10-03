@@ -6,27 +6,25 @@ The default cookbook gets the environment ready to develop infomax projects.
 
 ### Supported Platforms
 
-- Debian Jessie
+- Debian Stretch
 
 ### Chef
 
-- Chef 12.1+
+- Chef 13.0+
 
 ### Cookbook Depdendencies
 
-- libarchive
 - resolver
-- git
 
 ## Usage
 
 Add the cookbook to your Berksfile:
 
 ```ruby
-cookbook 'chef.cookbook.dev', '~> 0.1.0', :github 'codenamephp/chef.cookbook.dev'
+cookbook 'chef.cookbook.dev', :github 'codenamephp/chef.cookbook.dev'
 ```
 
-Add the cookbook to your runlist, e.g. in a role:
+Add the tools cookbook to your runlist, e.g. in a role:
 
 ```json
 {
@@ -34,7 +32,9 @@ Add the cookbook to your runlist, e.g. in a role:
   "chef_type": "role",
   "json_class": "Chef::Role",
   "run_list": [
-	  "recipe[chef.cookbook.dev]"
+	  "recipe[chef.cookbook.dev::chrome]"
   ]
 }
 ```
+
+Note that the default recipe is a No-Op, so you need to add the tools you want
