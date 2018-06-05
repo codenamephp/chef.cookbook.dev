@@ -1,6 +1,7 @@
 # Chef Cookbook Dev
+[![Build Status](https://travis-ci.org/codenamephp/chef.cookbook.dev.svg?branch=dev)](https://travis-ci.org/codenamephp/chef.cookbook.dev)
 
-The default cookbook gets the environment ready to develop infomax projects.
+Cookbook that contains recipes for dev tools, like vscode, chrome, openjdk ...
 
 ## Requirements
 
@@ -16,12 +17,18 @@ The default cookbook gets the environment ready to develop infomax projects.
 
 - resolver
 
+## Tools
+- [Google Chrome][chrome_url]
+- [Visual Studio Code][vscode_url]
+- [DNS Masq][dnsmasq_url]
+- [OpenJDK 8][openjdk_url]
+
 ## Usage
 
 Add the cookbook to your Berksfile:
 
 ```ruby
-cookbook 'chef.cookbook.dev', :github 'codenamephp/chef.cookbook.dev'
+cookbook 'codenamephp_dev'
 ```
 
 Add the tools cookbook to your runlist, e.g. in a role:
@@ -38,3 +45,8 @@ Add the tools cookbook to your runlist, e.g. in a role:
 ```
 
 Note that the default recipe is a No-Op, so you need to add the tools you want
+
+[chrome_url]: https://www.google.de/chrome
+[vscode_url]: https://code.visualstudio.com/
+[dnsmasq_url]: https://wiki.archlinux.de/title/Dnsmasq
+[openjdk_url]: http://openjdk.java.net/
