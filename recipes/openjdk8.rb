@@ -3,7 +3,7 @@ package 'Install openjdk8' do
   notifies :run, 'execute[Set java alternatives]', :immediately
 end
 
-execute "Set java alternatives" do
+execute 'Set java alternatives' do
   action :nothing
-  command "sudo update-java-alternatives --set java-1.8.0-openjdk-amd64"
+  command 'sudo update-java-alternatives --set java-1.8.0-openjdk-amd64'
 end

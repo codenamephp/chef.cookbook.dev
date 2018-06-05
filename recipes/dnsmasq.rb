@@ -1,4 +1,4 @@
-include_recipe 'resolver' 
+include_recipe 'resolver'
 
 package 'purge avahi-deamon' do
   action :purge
@@ -15,8 +15,8 @@ template 'update dnsmasq config' do
 end
 
 service 'dnsmasq' do
-  action [:enable, :start]
-  supports :reload => false
+  action %i[enable start]
+  supports reload: false
   subscribes :restart, 'template[update dnsmasq config]', :delayed
   subscribes :restart, 'template[/etc/resolv.conf]', :delayed
 end

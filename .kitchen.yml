@@ -1,20 +1,23 @@
 ---
 driver:
   name: vagrant
+
 provisioner:
   name: chef_solo
+
 verifier:
   name: inspec
+
 platforms:
-  - name: debian-9.1
+  - name: debian-9.3
 
 suites:
   - name: default
     run_list:
-      - recipe[chef.cookbook.dev::chrome]
-      - recipe[chef.cookbook.dev::openjdk8]
-      - recipe[chef.cookbook.dev::dnsmasq]
-    attributes:
+      - recipe[codenamephp_dev::chrome]
+      - recipe[codenamephp_dev::dnsmasq]
+      - recipe[codenamephp_dev::openjdk8]
     verifier:
       inspec_tests:
         - test/smoke/default
+    attributes:
