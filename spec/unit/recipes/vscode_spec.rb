@@ -1,12 +1,12 @@
 #
 # Cookbook:: codenamephp_dev
-# Spec:: default
+# Spec:: vscode
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'codenamephp_dev::chrome' do
+describe 'codenamephp_dev::vscode' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::SoloRunner.new
@@ -17,12 +17,12 @@ describe 'codenamephp_dev::chrome' do
       expect { chef_run }.to_not raise_error
     end
 
-    it 'adds google apt repo' do
-      expect(chef_run).to add_apt_repository('google-chrome')
+    it 'adds vscode apt repo' do
+      expect(chef_run).to add_apt_repository('vscode')
     end
 
-    it 'installs google chrome' do
-      expect(chef_run).to install_package('Install google chrome')
+    it 'installs vscode' do
+      expect(chef_run).to install_package('Install vscode')
     end
   end
 end

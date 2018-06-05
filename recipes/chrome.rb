@@ -1,11 +1,11 @@
 #
-# Cookbook:: chef.cookbook.dev
+# Cookbook:: codenamephp_dev
 # Recipe:: chrome
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 apt_repository 'google-chrome' do
-  uri        'http://dl.google.com/linux/chrome/deb/'
+  uri 'http://dl.google.com/linux/chrome/deb/'
   repo_name 'google-chrome'
   arch 'amd64'
   distribution 'stable'
