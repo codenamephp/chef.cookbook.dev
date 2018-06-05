@@ -15,7 +15,7 @@ Cookbook that contains recipes for dev tools, like vscode, chrome, openjdk ...
 
 ### Cookbook Depdendencies
 
-- resolver
+- [resolver][resolver_url]
 
 ## Tools
 - [Google Chrome][chrome_url]
@@ -50,3 +50,4 @@ Note that the default recipe is a No-Op, so you need to add the tools you want
 [vscode_url]: https://code.visualstudio.com/
 [dnsmasq_url]: https://wiki.archlinux.de/title/Dnsmasq
 [openjdk_url]: http://openjdk.java.net/
+[resolver_url]: https://supermarket.chef.io/cookbooks/resolver
