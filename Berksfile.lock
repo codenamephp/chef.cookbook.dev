@@ -1,9 +1,0 @@
-DEPENDENCIES
-  codenamephp_dev
-    path: .
-    metadata: true
-
-GRAPH
-  codenamephp_dev (0.2.0)
-    resolver (>= 0.0.0)
-  resolver (2.0.1)

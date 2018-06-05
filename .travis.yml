@@ -38,7 +38,7 @@ deploy:
     on:
       branch: master
     skip_cleanup: true
-    script: chef exec rake release
+    script: git status && chef exec rake release
   
 notifications:
   slack: codenamephp:4LpipONUdfAZ5ebatYC7Egmb
