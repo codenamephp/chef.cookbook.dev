@@ -8,15 +8,15 @@ package 'install dnsmasq' do
   package_name 'dnsmasq'
 end
 
-template 'update dnsmasq config' do
-  path '/etc/dnsmasq.conf'
-  source 'dnsmasq.conf.erb'
+template 'update dnsmasq local config' do
+  path '/etc/dnsmasq.d/local'
+  source 'dnsmasq/local.erb'
   verify 'dnsmasq --test'
 end
 
 service 'dnsmasq' do
   action %i[enable start]
   supports reload: false
-  subscribes :restart, 'template[update dnsmasq config]', :delayed
+  subscribes :restart, 'template[update dnsmasq local config]', :delayed
   subscribes :restart, 'template[/etc/resolv.conf]', :delayed
 end
