@@ -16,8 +16,8 @@ suites:
     run_list:
       - recipe[codenamephp_dev::chrome]
       - recipe[codenamephp_dev::dnsmasq]
-      - recipe[codenamephp_dev::openjdk8]
       - recipe[codenamephp_dev::vscode]
+      - recipe[codenamephp_dev::gnome_terminal]
     verifier:
       inspec_tests:
         - test/smoke/default

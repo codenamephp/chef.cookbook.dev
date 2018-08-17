@@ -27,9 +27,9 @@ describe 'codenamephp_dev::dnsmasq' do
     end
 
     it 'updates the dnsmasq config' do
-      expect(chef_run).to create_template('update dnsmasq config').with(
-        path:   '/etc/dnsmasq.conf',
-        source:  'dnsmasq.conf.erb',
+      expect(chef_run).to create_template('update dnsmasq local config').with(
+        path:   '/etc/dnsmasq.d/local',
+        source:  'dnsmasq/local.erb',
         # verify: 'dnsmasq --test' # verify does not seem to be supported in rspec
       )
     end
@@ -40,7 +40,7 @@ describe 'codenamephp_dev::dnsmasq' do
     end
 
     it 'delayed restarts the service when the template or reslv.conf changes' do
-      expect(service).to subscribe_to('template[update dnsmasq config]').on(:restart).delayed
+      expect(service).to subscribe_to('template[update dnsmasq local config]').on(:restart).delayed
       expect(service).to subscribe_to('template[/etc/resolv.conf]').on(:restart).delayed
     end
   end
