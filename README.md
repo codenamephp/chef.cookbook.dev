@@ -68,6 +68,9 @@ At last, [DNSMasq][dnsmasq_url] is installed and the local domain and all subdom
 ### gnome-terminal
 Just installs the gnome-terminal from package.
 
+### Unzip
+Just installs unzip from package (no gui client is installed)
+
 ### VSCode
 Adds the VSCode package repository to apt and installs [VSCode][vscode_url] from package.
 

@@ -18,6 +18,7 @@ suites:
       - recipe[codenamephp_dev::dnsmasq]
       - recipe[codenamephp_dev::vscode]
       - recipe[codenamephp_dev::gnome_terminal]
+      - recipe[codenamephp_dev::unzip]
     verifier:
       inspec_tests:
         - test/smoke/default
