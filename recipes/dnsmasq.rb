@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include_recipe 'resolver'
 
 package 'purge avahi-deamon' do

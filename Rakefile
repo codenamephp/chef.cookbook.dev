@@ -1,17 +1,45 @@
+# frozen_string_literal: true
+
+require 'active_support'
+require 'active_support/core_ext'
+
 # Checks if we are inside a Continuous Integration machine.
 #
 # @return [Boolean] whether we are inside a CI.
 # @example
 #   ci? #=> false
 def ci?
-  ENV['ENV'] == 'ci'
+  ENV['CI'] == 'true'
 end
 
 def use_dokken?
   ENV['USE_DOKKEN'] || ci?
 end
 
+def origin_branch
+  ENV['TRAVIS_PULL_REQUEST_BRANCH'].presence || ENV['TRAVIS_BRANCH'].presence || 'master'
+end
+
+def changelog_user
+  ENV['CHANGELOG_USER'].presence || 'codenamephp'
+end
+
+def changelog_project
+  ENV['CHANGELOG_PROJECT'].presence || 'chef.cookbook.dev'
+end
+
 task default: %w[style unit integration]
+
+namespace :git do
+  desc 'Setting up git for pushing'
+  task :setup do
+    if ENV['TRAVIS']
+      sh 'git config --local user.name "Travis CI"'
+      sh 'git config --local user.email "travis@codename-php.de"'
+      sh 'git remote set-url --push origin "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"', verbose: false
+    end
+  end
+end
 
 namespace :style do
   require 'rubocop/rake_task'
@@ -50,6 +78,7 @@ namespace :integration do
   def kitchen_instances(regexp, config)
     instances = Kitchen::Config.new(config).instances
     return instances if regexp.nil? || regexp == 'all'
+
     instances.get_all(Regexp.new(regexp))
   end
 
@@ -81,9 +110,40 @@ end
 desc 'Run Test Kitchen integration tests'
 task :integration, %i[regexp action] => ci? || use_dokken? ? %w[integration:dokken] : %w[integration:vagrant]
 
+namespace :documentation do
+  version_match = Regexp.new('\[RELEASE\s([\d\.]+)\]').match(ENV['TRAVIS_COMMIT_MESSAGE'])
+
+  desc 'Generate changelog'
+  task changelog: ['git:setup'] do
+    branch_repo = "/#{Dir.home}/#{ENV['TRAVIS_REPO_SLUG']}"
+
+    unless File.directory?(branch_repo)
+      sh "git clone 'https://#{ENV['GH_TOKEN']}@github.com/#{ENV['TRAVIS_REPO_SLUG']}.git' --branch #{origin_branch} --single-branch #{branch_repo}"
+    end
+    Dir.chdir(branch_repo) do
+      sh format("github_changelog_generator -u#{changelog_user} -p#{changelog_project} -t #{ENV['GH_TOKEN']} %<version>s", version: ("--future-release #{version_match[1]}" unless version_match.nil?)) # rubocop:disable Metrics/LineLength
+      sh 'git diff --exit-code CHANGELOG.md' do |ok|
+        sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch unless ok
+      end
+    end
+  end
+
+  desc 'Generate changelog from current commit message for release'
+  task changelog_release: ['git:setup'] do
+    unless version_match.nil?
+      sh "github_changelog_generator -u #{changelog_user} -p #{changelog_project} -t #{ENV['GH_TOKEN']} --future-release #{version_match[1]}"
+      sh 'git diff --exit-code CHANGELOG.md' do |ok|
+        sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + ENV['TRAVIS_BRANCH'] unless ok
+      end
+    end
+  end
+end
+desc 'Run the documentation cycle'
+task documentation: %w[documentation:changelog]
+
 namespace :release do
   desc 'Tag and release to supermarket with stove'
-  task :stove do
+  task stove: ['git:setup'] do
     sh 'chef exec stove --username codenamephp --key ./codenamephp.pem'
   end
 
@@ -94,4 +154,4 @@ namespace :release do
 end
 
 desc 'Run the release cycle'
-task release: %w[release:stove release:berksUpload]
+task release: %w[documentation:changelog_release release:stove release:berksUpload]

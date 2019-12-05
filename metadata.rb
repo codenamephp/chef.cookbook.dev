@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name 'codenamephp_dev'
 maintainer 'Bastian Schwarz'
 maintainer_email 'bastian@codename-php.de'
@@ -11,4 +13,4 @@ source_url 'https://github.com/codenamephp/chef.cookbook.dev' if respond_to?(:so
 
 depends 'resolver', '~>2.0'
 
-supports 'debian', '~>9.1'
+supports 'debian', '~>10.0'
