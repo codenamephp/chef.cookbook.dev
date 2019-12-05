@@ -7,7 +7,8 @@ Cookbook that contains recipes for dev tools, like vscode, chrome, openjdk ...
 
 ### Supported Platforms
 
-- Debian Stretch
+- Debian Buster
+- (Probably works still works for older debian versions but this is not tested)
 
 ### Chef
 
