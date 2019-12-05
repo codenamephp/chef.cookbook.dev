@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Cookbook:: codenamephp_dev
 # Spec:: default
@@ -28,8 +30,8 @@ describe 'codenamephp_dev::dnsmasq' do
 
     it 'updates the dnsmasq config' do
       expect(chef_run).to create_template('update dnsmasq local config').with(
-        path:   '/etc/dnsmasq.d/local',
-        source:  'dnsmasq/local.erb',
+        path: '/etc/dnsmasq.d/local',
+        source: 'dnsmasq/local.erb'
         # verify: 'dnsmasq --test' # verify does not seem to be supported in rspec
       )
     end

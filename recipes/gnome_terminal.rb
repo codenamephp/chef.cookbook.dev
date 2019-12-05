@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Just installs the gnome-terminal (my favorite terminal) from package
 #
