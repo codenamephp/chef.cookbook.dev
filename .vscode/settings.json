@@ -2,5 +2,6 @@
     "rubocop.configFile": ".rubocop",
     "ruby.intellisense": "rubyLocate",
     "ruby.format": "rubocop",
-    "ruby.codeCompletion": "rcodetools"
+    "ruby.codeCompletion": "rcodetools",
+    "editor.tabSize": 2
 }
