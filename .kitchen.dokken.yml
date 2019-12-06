@@ -4,6 +4,7 @@ driver:
   chef_version: current
   intermediate_instructions:
     - RUN apt-get install sudo
+    - RUN adduser --disabled-password --gecos "" test
     
 transport:
   name: dokken
