@@ -12,4 +12,8 @@ control 'vscode-1.0' do
   describe package('code') do
     it { should be_installed }
   end
+
+  describe command('sudo -utest code --list-extensions') do
+    its('stdout') { should match(/chef-software\.chef/) }
+  end
 end

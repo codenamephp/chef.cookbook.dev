@@ -10,7 +10,10 @@ verifier:
 
 platforms:
   - name: debian-10
-
+    lifecycle:
+    - pre_converge:
+      - remote: adduser --disabled-password --gecos "" test
+      
 suites:
   - name: default
     run_list:
@@ -23,3 +26,10 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
+      codenamephp:
+        dev:
+          vscode:
+            extensions: {
+              test: [chef-software.chef]
+            }
+            

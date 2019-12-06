@@ -6,15 +6,13 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-apt_repository 'vscode' do
-  uri 'https://packages.microsoft.com/repos/vscode'
-  repo_name 'vscode'
-  arch 'amd64'
-  distribution 'stable'
-  components ['main']
-  key 'https://packages.microsoft.com/keys/microsoft.asc'
-end
+sc_vscode_installer 'install vscode'
 
-package 'Install vscode' do
-  package_name 'code'
+node['codenamephp']['dev']['vscode']['extensions'].each do |user_name, extensions|
+  extensions.each do |extension_name|
+    sc_vscode_extension "install extension #{extension_name} for user #{user_name}" do
+      extension_name extension_name
+      user user_name
+    end
+  end
 end

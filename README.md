@@ -17,6 +17,7 @@ Cookbook that contains recipes for dev tools, like vscode, chrome, openjdk ...
 ### Cookbook Depdendencies
 
 - [resolver][resolver_url]
+- [sc_vscode][sc_vscode_url]
 
 ## Tools
 - [Google Chrome][chrome_url]
@@ -51,6 +52,9 @@ Note that the default recipe is a No-Op, so you need to add the tools you want
 
 #### resolver
 - `['resolver']['nameservers']` The array of ips to add to the resolver config. Defaults to `['127.0.0.1', '8.8.8.8', '8.8.4.4', '10.0.2.3']`
+- `['codenamephp']['dev']['vscode']['extensions']` Is a hashmap with the usernames as keys and the extensions for each users as array. Defaults to `{}` so no extensions are installed.
+Example: `['codenamephp']['dev']['vscode']['extensions'] = {'user1' => ['ext1', 'ext2']}`
+
 ## Recipes
 
 ### Default
@@ -73,7 +77,8 @@ Just installs the gnome-terminal from package.
 Just installs unzip from package (no gui client is installed)
 
 ### VSCode
-Adds the VSCode package repository to apt and installs [VSCode][vscode_url] from package.
+Installs [VSCode][vscode_url] from package using the [Sous Chefs vscode cookbook][sc_vscode_url]. Extensions can also be installed by giving the users and extensions
+as hashmap in the attributes.
 
 [chrome_url]: https://www.google.de/chrome
 [vscode_url]: https://code.visualstudio.com/
@@ -83,3 +88,4 @@ Adds the VSCode package repository to apt and installs [VSCode][vscode_url] from
 [avahi_url]: https://wiki.ubuntuusers.de/Avahi/
 [google_dns_url]: https://developers.google.com/speed/public-dns/
 [virtualbox_url]: https://www.virtualbox.org/
+[sc_vscode_url]:  https://github.com/sous-chefs/vscode
