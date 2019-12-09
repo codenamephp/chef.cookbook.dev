@@ -1,0 +1,7 @@
+#!/bin/bash
+
+FLAG="$HOME/.jetbrainstoolsbox.installed"
+if [ ! -f $FLAG ]; then
+ sudo -u$USER "<%= @toolbox_path %>/app";
+ touch $HOME/.jetbrainstoolsbox.installed;
+fi

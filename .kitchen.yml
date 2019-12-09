@@ -22,6 +22,7 @@ suites:
       - recipe[codenamephp_dev::vscode]
       - recipe[codenamephp_dev::gnome_terminal]
       - recipe[codenamephp_dev::unzip]
+      - recipe[codenamephp_dev::jetbrains_toolbox]
     verifier:
       inspec_tests:
         - test/smoke/default
