@@ -117,11 +117,9 @@ namespace :documentation do
   task changelog: ['git:setup'] do
     branch_repo = "/#{Dir.home}/#{ENV['TRAVIS_REPO_SLUG']}"
 
-    unless File.directory?(branch_repo)
-      sh "git clone 'https://#{ENV['GH_TOKEN']}@github.com/#{ENV['TRAVIS_REPO_SLUG']}.git' --branch #{origin_branch} --single-branch #{branch_repo}"
-    end
+    sh "git clone 'https://#{ENV['GH_TOKEN']}@github.com/#{ENV['TRAVIS_REPO_SLUG']}.git' --branch #{origin_branch} --single-branch #{branch_repo}" unless File.directory?(branch_repo)
     Dir.chdir(branch_repo) do
-      sh format("github_changelog_generator -u#{changelog_user} -p#{changelog_project} -t #{ENV['GH_TOKEN']} %<version>s", version: ("--future-release #{version_match[1]}" unless version_match.nil?)) # rubocop:disable Metrics/LineLength
+      sh format("github_changelog_generator -u#{changelog_user} -p#{changelog_project} -t #{ENV['GH_TOKEN']} %<version>s", version: ("--future-release #{version_match[1]}" unless version_match.nil?))
       sh 'git diff --exit-code CHANGELOG.md' do |ok|
         sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch unless ok
       end

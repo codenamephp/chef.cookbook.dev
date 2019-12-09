@@ -7,9 +7,10 @@ Layout/EndOfLine:
   EnforcedStyle: lf
   
 Metrics/LineLength:
-  Max: 160
+  Max: 200
 
 Metrics/BlockLength:
+  Max: 200
   Exclude:
     - 'Rakefile'
     - '**/*.rake'
@@ -22,3 +23,9 @@ Metrics/ModuleLength:
     - '**/*.rake'
     - 'spec/**/*.rb'
     - 'test/smoke/**/*.rb'
+  
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 50
