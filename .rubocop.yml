@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: enable
   Exclude:
     - 'bin/**'
     - 'bundler/**'
@@ -6,8 +7,8 @@ AllCops:
 Layout/EndOfLine:
   EnforcedStyle: lf
   
-Metrics/LineLength:
-  Max: 200
+Layout/LineLength:
+  Max: 200 
 
 Metrics/BlockLength:
   Max: 200
@@ -16,6 +17,15 @@ Metrics/BlockLength:
     - '**/*.rake'
     - 'spec/**/*.rb'
     - 'test/smoke/**/*.rb'
+    
+Metrics/MethodLength:
+  Max: 40
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/ParameterLists:
+  Max: 10
 
 Metrics/ModuleLength:
   Exclude:
@@ -26,6 +36,3 @@ Metrics/ModuleLength:
   
 Lint/AmbiguousBlockAssociation:
   Enabled: false
-
-Metrics/MethodLength:
-  Max: 50
