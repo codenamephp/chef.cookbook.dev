@@ -1,5 +1,5 @@
 # Chef Cookbook Dev
-[![Build Status](https://travis-ci.com/codenamephp/chef.cookbook.bash.svg?branch=master)](https://travis-ci.com/codenamephp/chef.cookbook.bash)
+[![Build Status](https://travis-ci.com/codenamephp/chef.cookbook.dev.svg?branch=dev)](https://travis-ci.com/codenamephp/chef.cookbook.dev)
 
 Cookbook that contains recipes for dev tools, like vscode, chrome, openjdk ...
 
