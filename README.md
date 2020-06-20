@@ -85,7 +85,7 @@ end
 ```
 
 ### Chrome
-The `codenamephp_dev_chrome` resource installs or uninstalls the [Google Chrome Browser][chrome_url] Browser and its apt repository.
+The `codenamephp_dev_chrome` resource installs or uninstalls the [Google Chrome][chrome_url] Browser and its apt repository.
 
 #### Actions
 - `:install`: Adds the apt repository and installs the browser via apt
