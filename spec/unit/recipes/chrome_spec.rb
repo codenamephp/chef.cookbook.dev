@@ -19,12 +19,8 @@ describe 'codenamephp_dev::chrome' do
       expect { chef_run }.to_not raise_error
     end
 
-    it 'adds google apt repo' do
-      expect(chef_run).to add_apt_repository('google-chrome')
-    end
-
-    it 'installs google chrome' do
-      expect(chef_run).to install_package('Install google chrome')
+    it 'calls the resource' do
+      expect(chef_run).to install_codenamephp_dev_chrome('install google chrome')
     end
   end
 end

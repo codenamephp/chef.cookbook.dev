@@ -46,7 +46,8 @@ Add the tools cookbook to your runlist, e.g. in a role:
 }
 ```
 
-Note that the default recipe is a No-Op, so you need to add the tools you want
+Note that the default recipe is a No-Op, so you need to add the tools you want. This cookbook is moving to resources and most recipes are only
+shortcuts for those resources so the preferred way is to create a wrapper cookbook and just resources since it is more flexible and stable that way.
 
 ### Attributes
 
@@ -83,13 +84,31 @@ codenamephp_dev_jetbrains_toolbox 'uninstall jetbrains-toolbox' do
 end
 ```
 
+### Chrome
+The `codenamephp_dev_chrome` resource installs or uninstalls the [Google Chrome Browser][chrome_url] Browser and its apt repository.
+
+#### Actions
+- `:install`: Adds the apt repository and installs the browser via apt
+- `:remove`: Removes the apt repository and the chrome package via apt
+
+#### Examples
+```ruby
+# Minmal parameters
+codenamephp_dev_chrome 'install chrome'
+
+# Uninstall
+codenamephp_dev_chrome 'install chrome' do
+  action :remove
+end
+```
+
 ## Recipes
 
 ### Default
 The default cookbook (as stated multiple times) is a No-Op. Pick and choose the tools you want via the recipes.
 
 ### Chrome
-Adds the google apt repository and installs [Google Chrome][chrome_url] from package.
+Adds the google apt repository and installs [Google Chrome][chrome_url] from package. This recipe is now deprecated. Use the resource instead.
 
 ### DNSMasq
 Purges the [Avahi Deamon][avahi_url] which is installed at least on Ubuntu and tends to occupy ports. Also the [resolver Cookbook][resolver_url]
