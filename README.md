@@ -113,6 +113,22 @@ The `codenamephp_dev_vscode` resource installs or uninstalls the [VisualStudio C
 #### Properties
 - `users_extensions`: Hash with the users as keys and an array of extension names as strings as values that will be installed
 
+#### Examples
+```ruby
+# Minmal parameters
+codenamephp_dev_vscode 'Install VSCode'
+
+# With extensions
+codenamephp_dev_vscode 'Install extensions' do
+  users_extensions 'user1' => %w[ext1 ext2], 'user2' => %w[ext2, ext3]
+end
+
+# Uninstall
+codenamephp_dev_vscode 'Uninstall VSCode' do
+  action :uninstall
+end
+```
+
 ### VisualStudio Code Extensions
 The `codenamephp_dev_vscode_extensions` resource installs or uninstalls extensions for the [VisualStudio Code][vscode_url] IDE. It's an extension to the resource in the [sc_vscode Cookbook by Sous Chefs][sc_vscode_url].
 
