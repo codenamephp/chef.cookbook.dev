@@ -30,7 +30,7 @@ describe 'codenamephp_dev_vscode_extensions' do
     end
   end
 
-  context 'Uinstall' do
+  context 'Uninstall' do
     recipe do
       codenamephp_dev_vscode_extensions 'Uninstall extensions' do
         users_extensions 'user1' => %w[ext1 ext2], 'user2' => %w[ext2 ext3]

@@ -115,7 +115,7 @@ The `codenamephp_dev_vscode` resource installs or uninstalls the [VisualStudio C
 
 #### Examples
 ```ruby
-# Minmal parameters
+# Minimal parameters
 codenamephp_dev_vscode 'Install VSCode'
 
 # With extensions
