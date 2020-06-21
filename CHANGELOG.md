@@ -1,6 +1,6 @@
 # Change Log
 
-## [2.3.1](https://github.com/codenamephp/chef.cookbook.dev/tree/2.3.1) (2020-06-21)
+## [2.4.0](https://github.com/codenamephp/chef.cookbook.dev/tree/2.3.1) (2020-06-21)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/v2.3.0...2.3.1)
 
