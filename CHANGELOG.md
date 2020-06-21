@@ -1,5 +1,22 @@
 # Change Log
 
+## [2.4.0](https://github.com/codenamephp/chef.cookbook.dev/tree/2.4.0) (2020-06-21)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/v2.3.0...2.4.0)
+
+**Implemented enhancements:**
+
+- Move to new build [\#26](https://github.com/codenamephp/chef.cookbook.dev/issues/26)
+
+**Closed issues:**
+
+- VSCode resource [\#29](https://github.com/codenamephp/chef.cookbook.dev/issues/29)
+- Turn chrome recipe into resource [\#27](https://github.com/codenamephp/chef.cookbook.dev/issues/27)
+
+**Merged pull requests:**
+
+- \[RELEASE\] 2.4.0 [\#30](https://github.com/codenamephp/chef.cookbook.dev/pull/30) ([github-actions[bot]](https://github.com/apps/github-actions))
+
 ## [2.4.0](https://github.com/codenamephp/chef.cookbook.dev/tree/2.3.1) (2020-06-21)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/v2.3.0...2.3.1)
