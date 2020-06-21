@@ -52,7 +52,7 @@ shortcuts for those resources so the preferred way is to create a wrapper cookbo
 ### Attributes
 
 #### resolver
-- `['resolver']['nameservers']` The array of ips to add to the resolver config. Defaults to `['127.0.0.1', '8.8.8.8', '8.8.4.4', '10.0.2.3']`
+- `['resolver']['nameservers']` The array of ips to add to the resolver config. Defaults to `['127.0.0.1', '8.8.8.8', '8.8.4.4', '10.0.2.3']`. This is now deprecated.
 - `['codenamephp']['dev']['vscode']['extensions']` Is a hashmap with the usernames as keys and the extensions for each users as array. Defaults to `{}` so no extensions are installed. This is now deprecated. Build a wrapper cookbook and use the resources
 Example: `['codenamephp']['dev']['vscode']['extensions'] = {'user1' => ['ext1', 'ext2']}`
 
@@ -154,14 +154,18 @@ end
 ```
 
 ## Recipes
+The recipes are just shortcuts for simple use cases so the tools can be installed e.g. with the chef server gui. For more complex use cases the resources
+should be used.
 
 ### Default
 The default cookbook (as stated multiple times) is a No-Op. Pick and choose the tools you want via the recipes.
 
 ### Chrome
-Adds the google apt repository and installs [Google Chrome][chrome_url] from package. This recipe is now deprecated. Use the resource instead.
+Adds the google apt repository and installs [Google Chrome][chrome_url] from package.
 
 ### DNSMasq
+This recipe is deprecated.
+
 Purges the [Avahi Deamon][avahi_url] which is installed at least on Ubuntu and tends to occupy ports. Also the [resolver Cookbook][resolver_url]
 is used to add localhost, [Google DNS][google_dns_url] and `10.0.2.3` which is needed in [VirtualBox][virutalbox_url] for network operations to work.
 The IPs can be overridden/added to via the attributes.
@@ -176,7 +180,7 @@ Just installs unzip from package (no gui client is installed)
 
 ### VSCode
 Installs [VSCode][vscode_url] from package using the [Sous Chefs vscode cookbook][sc_vscode_url]. Extensions can also be installed by giving the users and extensions
-as hashmap in the attributes. This recipe and the attributes are now deprecated. Just use the resources.
+as hashmap in the attributes.
 
 ### Jetbrains Toolbox
 The `jetbrains_toolbox` recipe installs the jetbrains toolbox to a shared location and adds an X-Server startup script so it will be installed for each user on first

@@ -24,7 +24,7 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
-  - name: deprecated_recipes
+  - name: shortcut_recipes
     run_list:
       - recipe[test::init_users]
       - recipe[codenamephp_dev::chrome]

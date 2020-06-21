@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+log 'This recipe is deprecated and will be removed without replacement. Have a look at the chef cookbook instead.' do
+  level :warn
+end
+
 include_recipe 'resolver'
 
 package 'purge avahi-deamon' do
