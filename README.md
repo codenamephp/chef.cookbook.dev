@@ -53,7 +53,7 @@ shortcuts for those resources so the preferred way is to create a wrapper cookbo
 
 #### resolver
 - `['resolver']['nameservers']` The array of ips to add to the resolver config. Defaults to `['127.0.0.1', '8.8.8.8', '8.8.4.4', '10.0.2.3']`
-- `['codenamephp']['dev']['vscode']['extensions']` Is a hashmap with the usernames as keys and the extensions for each users as array. Defaults to `{}` so no extensions are installed.
+- `['codenamephp']['dev']['vscode']['extensions']` Is a hashmap with the usernames as keys and the extensions for each users as array. Defaults to `{}` so no extensions are installed. This is now deprecated. Build a wrapper cookbook and use the resources
 Example: `['codenamephp']['dev']['vscode']['extensions'] = {'user1' => ['ext1', 'ext2']}`
 
 ## Resources
@@ -102,6 +102,41 @@ codenamephp_dev_chrome 'install chrome' do
 end
 ```
 
+### VisualStudio Code
+The `codenamephp_dev_vscode` resource installs or uninstalls the [VisualStudio Code][vscode_url] IDE and extensions. The IDE and extensions are installed by the 
+`codenamephp_dev_vscode_extensions` resource.  Both are extensions to the resources in the [sc_vscode Cookbook by Sous Chefs][sc_vscode_url].
+
+#### Actions
+- `:install`: Adds the apt repository and installs the IDE via apt
+- `:uninstall`: Removes IDE package via apt
+
+#### Properties
+- `users_extensions`: Hash with the users as keys and an array of extension names as strings as values that will be installed
+
+### VisualStudio Code Extensions
+The `codenamephp_dev_vscode_extensions` resource installs or uninstalls extensions for the [VisualStudio Code][vscode_url] IDE. It's an extension to the resource in the [sc_vscode Cookbook by Sous Chefs][sc_vscode_url].
+
+#### Actions
+- `:install`: Installs the given extensions for the given users
+- `:uninstall`: removes the given extensions for the given users
+
+#### Properties
+- `users_extensions`: Hash with the users as keys and an array of extension names as strings as values that will be uninstalled
+
+#### Examples
+```ruby
+# Minmal parameters
+codenamephp_dev_vscode_extensions 'Install extensions' do
+  users_extensions 'user1' => %w[ext1 ext2], 'user2' => %w[ext2, ext3]
+end
+
+# Uninstall
+codenamephp_dev_vscode_extensions 'Uninstall extensions' do
+  action :uninstall
+  users_extensions 'user1' => %w[ext1 ext2], 'user2' => %w[ext2, ext3]
+end
+```
+
 ## Recipes
 
 ### Default
@@ -125,7 +160,7 @@ Just installs unzip from package (no gui client is installed)
 
 ### VSCode
 Installs [VSCode][vscode_url] from package using the [Sous Chefs vscode cookbook][sc_vscode_url]. Extensions can also be installed by giving the users and extensions
-as hashmap in the attributes.
+as hashmap in the attributes. This recipe and the attributes are now deprecated. Just use the resources.
 
 ### Jetbrains Toolbox
 The `jetbrains_toolbox` recipe installs the jetbrains toolbox to a shared location and adds an X-Server startup script so it will be installed for each user on first

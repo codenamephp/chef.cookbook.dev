@@ -6,13 +6,10 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-sc_vscode_installer 'install vscode'
+log 'The codenamephp_dev::vscode recipe is deprecated. Just use the resources in a wrapper cookbook' do
+  level :warn
+end
 
-node['codenamephp']['dev']['vscode']['extensions'].each do |user_name, extensions|
-  extensions.each do |extension_name|
-    sc_vscode_extension "install extension #{extension_name} for user #{user_name}" do
-      extension_name extension_name
-      user user_name
-    end
-  end
+codenamephp_dev_vscode 'Install vscode and extensions' do
+  users_extensions node['codenamephp']['dev']['vscode']['extensions']
 end

@@ -8,15 +8,10 @@
 
 require 'spec_helper'
 
-describe 'codenamephp_dev::chrome' do
+describe 'codenamephp_dev_chrome' do
   step_into :codenamephp_dev_chrome
 
   context 'Install' do
-    let(:chef_run) do
-      runner = ChefSpec::SoloRunner.new
-      runner.converge(described_recipe)
-    end
-
     recipe do
       codenamephp_dev_chrome 'install chrome'
     end
@@ -35,11 +30,6 @@ describe 'codenamephp_dev::chrome' do
   end
 
   context 'Remove' do
-    let(:chef_run) do
-      runner = ChefSpec::SoloRunner.new
-      runner.converge(described_recipe)
-    end
-
     recipe do
       codenamephp_dev_chrome 'install chrome' do
         action :remove

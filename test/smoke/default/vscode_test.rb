@@ -13,7 +13,16 @@ control 'vscode-1.0' do
     it { should be_installed }
   end
 
-  describe command('sudo -utest code --list-extensions') do
-    its('stdout') { should match(/chef-software\.chef/) }
+  describe command('sudo -uuser1 code --list-extensions') do
+    its('stdout') { should match(/chef-software\.chef/i) }
+  end
+  describe command('sudo -uuser1 code --list-extensions') do
+    its('stdout') { should match(/eamodio\.gitlens/i) }
+  end
+  describe command('sudo -uuser2 code --list-extensions') do
+    its('stdout') { should match(/davidanson\.vscode-markdownlint/i) }
+  end
+  describe command('sudo -uuser2 code --list-extensions') do
+    its('stdout') { should match(/github\.vscode-pull-request-github/i) }
   end
 end
