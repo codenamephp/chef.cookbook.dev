@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.4.1](https://github.com/codenamephp/chef.cookbook.dev/tree/2.4.1) (2020-06-26)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.4.0...2.4.1)
+
+**Fixed bugs:**
+
+- Installing libx11-xcb1 and libasound2 [\#33](https://github.com/codenamephp/chef.cookbook.dev/pull/33) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [2.4.0](https://github.com/codenamephp/chef.cookbook.dev/tree/2.4.0) (2020-06-21)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/v2.3.0...2.4.0)
