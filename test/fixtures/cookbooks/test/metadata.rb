@@ -9,4 +9,4 @@ version '1.0.0'
 
 supports 'debian', '~>10'
 
-depends 'codenamephp_bash'
+depends 'codenamephp_dev'
