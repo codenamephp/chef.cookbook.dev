@@ -16,6 +16,10 @@ describe 'codenamephp_dev_vscode' do
       codenamephp_dev_vscode 'Install vscode'
     end
 
+    it 'installs dependencies' do
+      expect(chef_run).to install_package(%w[libx11-xcb1 libasound2])
+    end
+
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
