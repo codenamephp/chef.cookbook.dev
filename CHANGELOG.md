@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.4.2](https://github.com/codenamephp/chef.cookbook.dev/tree/2.4.2) (2020-06-28)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.4.1...2.4.2)
+
+**Fixed bugs:**
+
+- Added cookbook name to jetbrains x11 [\#36](https://github.com/codenamephp/chef.cookbook.dev/pull/36) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [2.4.1](https://github.com/codenamephp/chef.cookbook.dev/tree/2.4.1) (2020-06-26)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.4.0...2.4.1)
