@@ -50,6 +50,7 @@ action :install do
 
   template 'install jetrbains toolbox run on boot' do
     source 'jetbrains_toolbox/xsession.erb'
+    cookbook 'codenamephp_dev'
     path '/etc/X11/Xsession.d/100-jetbrains-toolbox'
     owner 'root'
     group 'root'
