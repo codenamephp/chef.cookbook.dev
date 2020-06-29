@@ -30,4 +30,9 @@ control 'jetrbains-toolbox-1.0' do
     it { should exist }
     its('content') { should match(%r{/usr/share/jetbrains-toolbox/app}) }
   end
+
+  describe file('/etc/xdg/autostart/jetbrains-toolbox.desktop') do
+    it { should exist }
+    its('content') { should match(%r{/usr/share/jetbrains-toolbox/app}) }
+  end
 end
