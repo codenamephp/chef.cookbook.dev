@@ -1,5 +1,18 @@
 # Change Log
 
+## [2.5.0](https://github.com/codenamephp/chef.cookbook.dev/tree/2.5.0) (2020-06-29)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.4.2...2.5.0)
+
+**Implemented enhancements:**
+
+- Jetbrains Toolbox doesn't start for Gnome 3 [\#38](https://github.com/codenamephp/chef.cookbook.dev/issues/38)
+- Jetbrains Toolbox doesn't start for Gnome 3 [\#39](https://github.com/codenamephp/chef.cookbook.dev/pull/39) ([bastianschwarz](https://github.com/bastianschwarz))
+
+**Merged pull requests:**
+
+- \[RELEASE\] 2.4.3 [\#34](https://github.com/codenamephp/chef.cookbook.dev/pull/34) ([github-actions[bot]](https://github.com/apps/github-actions))
+
 ## [2.4.2](https://github.com/codenamephp/chef.cookbook.dev/tree/2.4.2) (2020-06-28)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.4.1...2.4.2)
