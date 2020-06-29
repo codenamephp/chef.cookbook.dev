@@ -48,10 +48,24 @@ action :install do
     action :delete
   end
 
-  template 'install jetrbains toolbox run on boot' do
+  template 'install jetrbains toolbox run on boot with x11 session' do
     source 'jetbrains_toolbox/xsession.erb'
     cookbook 'codenamephp_dev'
     path '/etc/X11/Xsession.d/100-jetbrains-toolbox'
+    owner 'root'
+    group 'root'
+    mode '0777'
+    variables(
+      toolbox_path: new_resource.toolbox_path
+    )
+    action :create
+    only_if { ::File.exist?("#{new_resource.toolbox_path}/app") }
+  end
+
+  template 'install jetbrains toolbox run on boot with xdg autostart' do
+    source 'jetbrains_toolbox/xdg.erb'
+    cookbook 'codenamephp_dev'
+    path '/etc/xdg/autostart/jetbrains-toolbox.desktop'
     owner 'root'
     group 'root'
     mode '0777'
@@ -66,6 +80,11 @@ end
 action :uninstall do
   file 'delete xsession script' do
     path '/etc/X11/Xsession.d/100-jetbrains-toolbox'
+    action :delete
+  end
+
+  file 'delete xdb script' do
+    path '/etc/xdg/autostart/jetbrains-toolbox.desktop'
     action :delete
   end
 
