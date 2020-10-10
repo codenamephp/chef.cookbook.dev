@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.5.1](https://github.com/codenamephp/chef.cookbook.dev/tree/2.5.1) (2020-10-10)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.5.0...2.5.1)
+
+**Fixed bugs:**
+
+- Added libgbm1 and libxcb-dri3-0 since they are needed to run VSCode [\#43](https://github.com/codenamephp/chef.cookbook.dev/pull/43) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [2.5.0](https://github.com/codenamephp/chef.cookbook.dev/tree/2.5.0) (2020-06-29)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.4.2...2.5.0)
