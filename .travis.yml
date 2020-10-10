@@ -9,27 +9,26 @@ if: sender != "github-actions[bot]"
 
 branches:
   only:
-  - master
-  - /^\d+\.\d+(\.\d+)?(-\S*)?$/
+    - main
+    - /^\d+\.\d+(\.\d+)?(-\S*)?$/
   except:
-  - release/next
+    - release/next
 
 services: docker
 
 env:
   global:
-  - CHEF_LICENSE=accept
-  - KITCHEN_LOCAL_YAML=kitchen.dokken.yml
-  - secure: GRllHxFmOWers2DUYiEYPP5izcF6fwkDK+ciK3N17A5yKwfFGSn7ROQM4ihDItF2j93Pmvw+NhmbjBe4eMlAMXZflzuEa5JXEW0KeyVb77ULQvGiJfD+tS6wMV1ei+F+/h7ug5DoWXHtsT/z7nwEYOTKeZPjOUQpRgHidQ9fzSUbDfMvQq/7SswsLcNsgCUTWkmnxdGbgTnC9bocTYxrcLo7QeMf0A2sk0rVK61YJvYZwiFYTRxoXnINYe+OH6KEuah3AZlwXT/oB/V+ZMek5Z6w1t2HgOAMyEZSlpuLRStGYefeqjoEnQZszP9KO1mp/91ZdSqyLcWXoKKJWO+xtZnbO5eT1K9r4YY3a2LdmKoiWpiQf1iYCzQlX+qMNrnMNCgSFnIS8rS43JNW0QDfCh2OGXckdbSTgGfNRx6WkD7mlE+RoJ0Kpq9r8Lf6/kj4Q9Mva/PvXDokpt+s4sKPdV3axFOEEgS2qLH9u8y62u29/XYuScofSvPPnd7HJ4CVJxwQ55qlAvNMkzl1b+E6Lz7DzlJQ3oDDlP5hJRqYSznNiQi5gBzHWtWQZcjYeAG1l10KORcgs8YJwcxMqihhthPGVil/oPx0ar03KDxrswkwG2sgqvGc131dGxG720R+OhZTQAMQqyttBgzST0GXaPAeLoc/o9VWR7JQVq5eN+4=
+    - CHEF_LICENSE=accept
+    - KITCHEN_LOCAL_YAML=kitchen.dokken.yml
+    - secure: GRllHxFmOWers2DUYiEYPP5izcF6fwkDK+ciK3N17A5yKwfFGSn7ROQM4ihDItF2j93Pmvw+NhmbjBe4eMlAMXZflzuEa5JXEW0KeyVb77ULQvGiJfD+tS6wMV1ei+F+/h7ug5DoWXHtsT/z7nwEYOTKeZPjOUQpRgHidQ9fzSUbDfMvQq/7SswsLcNsgCUTWkmnxdGbgTnC9bocTYxrcLo7QeMf0A2sk0rVK61YJvYZwiFYTRxoXnINYe+OH6KEuah3AZlwXT/oB/V+ZMek5Z6w1t2HgOAMyEZSlpuLRStGYefeqjoEnQZszP9KO1mp/91ZdSqyLcWXoKKJWO+xtZnbO5eT1K9r4YY3a2LdmKoiWpiQf1iYCzQlX+qMNrnMNCgSFnIS8rS43JNW0QDfCh2OGXckdbSTgGfNRx6WkD7mlE+RoJ0Kpq9r8Lf6/kj4Q9Mva/PvXDokpt+s4sKPdV3axFOEEgS2qLH9u8y62u29/XYuScofSvPPnd7HJ4CVJxwQ55qlAvNMkzl1b+E6Lz7DzlJQ3oDDlP5hJRqYSznNiQi5gBzHWtWQZcjYeAG1l10KORcgs8YJwcxMqihhthPGVil/oPx0ar03KDxrswkwG2sgqvGc131dGxG720R+OhZTQAMQqyttBgzST0GXaPAeLoc/o9VWR7JQVq5eN+4=
 
 install:
-- sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
-- eval "$(chef shell-init bash)"
-- openssl aes-256-cbc -K $encrypted_c5fc48683693_key -iv $encrypted_c5fc48683693_iv -in codenamephp.pem.enc -out codenamephp.pem -d
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
+  - eval "$(chef shell-init bash)"
+  - openssl aes-256-cbc -K $encrypted_c5fc48683693_key -iv $encrypted_c5fc48683693_iv -in codenamephp.pem.enc -out codenamephp.pem -d
 
 script:
-  - chef exec foodcritic .
-  - chef exec rubocop
+  - chef exec cookstyle .
   - chef exec kitchen test
 
 before_deploy:
@@ -48,6 +47,6 @@ deploy:
 notifications:
   slack:
     rooms:
-     - secure: g64j8TMi4BPWSGK41buJuIF467aa86BsDQHHrjWy0j3j9zOGpoZo/6b98EAHJGv2D/GAgJyV5a/ENLpDPAT5IaNvrv/TqKMqPv/oQm4IToUs4m3s0lyFNDjAGC0qAPYC5RQQ5nzYTQR1SaAKpBxQ8Vr4xcrkn74w7fzA4Qn1LKtm//nnSArH/ra/5fO0NcVo5m6l44+hTKDmWHJelAI+cvn4ncA0/2PoLAwoqEgAe7PyqjUwlvmx6RAt6ocQMgu1l2D7hv1xX6U5n+A3ebPz59CKrL3sZjQkAaeal/GPq9wDxcFIciYwVwwVwFl3/t08T9m/XbHHEBieir1TSL/xrTq95R8HKCGyTDqgULSawoHsgEfc5c5vjCbT8qfXc0bPAO1uB8Lwo8HBzQt9Qg0ndXYDmH82HIghuIhFdVxCw/Y8BrMQQdCAAq5F6LmH8N6u7P48jQ84X0byyPMDQ06kjY4OK6xHxLQGcjVNtSgTFVYv1Zv5EsSs0h3ux2FF7H/Gglo0jmAg6tKsDy8kUT5vnY+duVWepWY4QK2oS88GZsarVbSsKwOq9AoPxrjr8fjAVSBj3Za7BAk7r9JB0mx2ge8fBVxrf8p/utaC2fHzz6KuEzDszf3cY24XfGzqLR5NEPGBnKAuktiW7ZzV6Kx3BADVxmlQV9RJ7uf2YElRFhg=
+      - secure: g64j8TMi4BPWSGK41buJuIF467aa86BsDQHHrjWy0j3j9zOGpoZo/6b98EAHJGv2D/GAgJyV5a/ENLpDPAT5IaNvrv/TqKMqPv/oQm4IToUs4m3s0lyFNDjAGC0qAPYC5RQQ5nzYTQR1SaAKpBxQ8Vr4xcrkn74w7fzA4Qn1LKtm//nnSArH/ra/5fO0NcVo5m6l44+hTKDmWHJelAI+cvn4ncA0/2PoLAwoqEgAe7PyqjUwlvmx6RAt6ocQMgu1l2D7hv1xX6U5n+A3ebPz59CKrL3sZjQkAaeal/GPq9wDxcFIciYwVwwVwFl3/t08T9m/XbHHEBieir1TSL/xrTq95R8HKCGyTDqgULSawoHsgEfc5c5vjCbT8qfXc0bPAO1uB8Lwo8HBzQt9Qg0ndXYDmH82HIghuIhFdVxCw/Y8BrMQQdCAAq5F6LmH8N6u7P48jQ84X0byyPMDQ06kjY4OK6xHxLQGcjVNtSgTFVYv1Zv5EsSs0h3ux2FF7H/Gglo0jmAg6tKsDy8kUT5vnY+duVWepWY4QK2oS88GZsarVbSsKwOq9AoPxrjr8fjAVSBj3Za7BAk7r9JB0mx2ge8fBVxrf8p/utaC2fHzz6KuEzDszf3cY24XfGzqLR5NEPGBnKAuktiW7ZzV6Kx3BADVxmlQV9RJ7uf2YElRFhg=
     on_success: never
     on_failure: always

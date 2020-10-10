@@ -21,7 +21,7 @@ template 'update dnsmasq local config' do
 end
 
 service 'dnsmasq' do
-  action %i[enable start]
+  action %i(enable start)
   supports reload: false
   subscribes :restart, 'template[update dnsmasq local config]', :delayed
   subscribes :restart, 'template[/etc/resolv.conf]', :delayed

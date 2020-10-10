@@ -26,7 +26,7 @@ describe 'codenamephp_dev_jetbrains_toolbox' do
         group: 'root',
         mode: '0777',
         variables: {
-          toolbox_path: '/usr/share/jetbrains-toolbox'
+          toolbox_path: '/usr/share/jetbrains-toolbox',
         }
       )
     end

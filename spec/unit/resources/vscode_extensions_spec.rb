@@ -14,7 +14,7 @@ describe 'codenamephp_dev_vscode_extensions' do
   context 'Install' do
     recipe do
       codenamephp_dev_vscode_extensions 'Install extensions' do
-        users_extensions 'user1' => %w[ext1 ext2], 'user2' => %w[ext2 ext3]
+        users_extensions 'user1' => %w(ext1 ext2), 'user2' => %w(ext2 ext3)
       end
     end
 
@@ -33,7 +33,7 @@ describe 'codenamephp_dev_vscode_extensions' do
   context 'Uninstall' do
     recipe do
       codenamephp_dev_vscode_extensions 'Uninstall extensions' do
-        users_extensions 'user1' => %w[ext1 ext2], 'user2' => %w[ext2 ext3]
+        users_extensions 'user1' => %w(ext1 ext2), 'user2' => %w(ext2 ext3)
         action :uninstall
       end
     end
