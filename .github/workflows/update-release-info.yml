@@ -2,7 +2,7 @@ name: Update Release Info
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   update_version:

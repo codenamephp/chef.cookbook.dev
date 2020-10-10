@@ -17,7 +17,7 @@ describe 'codenamephp_dev_vscode' do
     end
 
     it 'installs dependencies' do
-      expect(chef_run).to install_package(%w[libx11-xcb1 libasound2 libgbm1 libxcb-dri3-0])
+      expect(chef_run).to install_package(%w(libx11-xcb1 libasound2 libgbm1 libxcb-dri3-0))
     end
 
     it 'converges successfully' do
@@ -32,7 +32,7 @@ describe 'codenamephp_dev_vscode' do
   context 'When users and extensions are set' do
     recipe do
       codenamephp_dev_vscode 'Install vscode and extensions' do
-        users_extensions 'user1' => %w[ext1 ext2], 'user2' => %w[ext2 ext3]
+        users_extensions 'user1' => %w(ext1 ext2), 'user2' => %w(ext2 ext3)
       end
     end
 
@@ -41,7 +41,7 @@ describe 'codenamephp_dev_vscode' do
     end
 
     it 'installs extensions for each user using the resource' do
-      expect(chef_run).to install_codenamephp_dev_vscode_extensions('Install vscode extensions').with(users_extensions: { 'user1' => %w[ext1 ext2], 'user2' => %w[ext2 ext3] })
+      expect(chef_run).to install_codenamephp_dev_vscode_extensions('Install vscode extensions').with(users_extensions: { 'user1' => %w(ext1 ext2), 'user2' => %w(ext2 ext3) })
     end
   end
 end
