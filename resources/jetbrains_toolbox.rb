@@ -33,9 +33,9 @@ action :install do
     path "#{new_resource.toolbox_path}/app"
     owner 'root'
     group 'root'
-    mode 0o757
+    mode '757'
     content lazy {
-      versioned_directory = Mixlib::ShellOut.new("find #{new_resource.toolbox_path}/extracted -maxdepth 1 -type d -name jetbrains-toolbox-\* -print | head -n1").run_command.stdout.strip
+      versioned_directory = shell_out("find #{new_resource.toolbox_path}/extracted -maxdepth 1 -type d -name jetbrains-toolbox-\* -print | head -n1").stdout.strip
       ::File.open("#{versioned_directory}/jetbrains-toolbox").read
     }
     only_if { ::File.directory?("#{new_resource.toolbox_path}/extracted") }
