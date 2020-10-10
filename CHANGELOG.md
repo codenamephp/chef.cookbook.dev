@@ -10,6 +10,20 @@
 
 **Merged pull requests:**
 
+- Last merge from master [\#46](https://github.com/codenamephp/chef.cookbook.dev/pull/46) ([bastianschwarz](https://github.com/bastianschwarz))
+- Updated branch names from master to main [\#44](https://github.com/codenamephp/chef.cookbook.dev/pull/44) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE\] 2.5.1 [\#40](https://github.com/codenamephp/chef.cookbook.dev/pull/40) ([github-actions[bot]](https://github.com/apps/github-actions))
+
+## [2.5.1](https://github.com/codenamephp/chef.cookbook.dev/tree/2.5.1) (2020-10-10)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.5.0...2.5.1)
+
+**Fixed bugs:**
+
+- Added libgbm1 and libxcb-dri3-0 since they are needed to run VSCode [\#43](https://github.com/codenamephp/chef.cookbook.dev/pull/43) ([bastianschwarz](https://github.com/bastianschwarz))
+
+**Merged pull requests:**
+
 - Updated branch names from master to main [\#44](https://github.com/codenamephp/chef.cookbook.dev/pull/44) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE\] 2.5.1 [\#40](https://github.com/codenamephp/chef.cookbook.dev/pull/40) ([github-actions[bot]](https://github.com/apps/github-actions))
 
