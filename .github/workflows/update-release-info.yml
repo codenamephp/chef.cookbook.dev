@@ -26,3 +26,5 @@ jobs:
         uses: patrickjahns/chlgr@v1
         with:
           release-version: ${{ steps.version.outputs.next-version }}
+          base-branch: 'main'
+          commit-msg-prefix: '[CHANGELOG]'
