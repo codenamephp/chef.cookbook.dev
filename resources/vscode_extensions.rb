@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+deprecated 'The codenamephp_dev_vscode_extensions resource has been deprecated and will be moved to its own dedicated cookbook. This resource will be removed with the next major release.'
+
 property :users_extensions, Hash, required: true, description: 'A hash where the username is the key and the value is an array with extension names as string for that user'
 
 action :install do
