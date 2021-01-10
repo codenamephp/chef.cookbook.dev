@@ -10,19 +10,18 @@ verifier:
 
 platforms:
   - name: debian-10
-      
+
 suites:
   - name: default
     run_list:
       - recipe[test::chrome]
-      - recipe[codenamephp_dev::dnsmasq]
       - recipe[codenamephp_dev::gnome_terminal]
       - recipe[codenamephp_dev::unzip]
       - recipe[codenamephp_dev::jetbrains_toolbox]
     verifier:
       inspec_tests:
         - test/smoke/default
-    attributes: 
+    attributes:
   - name: vscode
     run_list:
       - recipe[test::vscode]
@@ -50,4 +49,3 @@ suites:
               user1: [eamodio.gitlens, chef-software.chef],
               user2: [davidanson.vscode-markdownlint, github.vscode-pull-request-github]
             }
-            
