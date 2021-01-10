@@ -16,13 +16,11 @@ Cookbook that contains recipes for dev tools, like vscode, chrome, openjdk ...
 
 ### Cookbook Depdendencies
 
-- [resolver][resolver_url]
 - [sc_vscode][sc_vscode_url]
 
 ## Tools
 - [Google Chrome][chrome_url]
 - [Visual Studio Code][vscode_url]
-- [DNS Masq][dnsmasq_url]
 - [gnome-terminal][gnome-terminal_url]
 
 ## Usage
@@ -52,7 +50,6 @@ shortcuts for those resources so the preferred way is to create a wrapper cookbo
 ### Attributes
 
 #### resolver
-- `['resolver']['nameservers']` The array of ips to add to the resolver config. Defaults to `['127.0.0.1', '8.8.8.8', '8.8.4.4', '10.0.2.3']`. This is now deprecated.
 - `['codenamephp']['dev']['vscode']['extensions']` Is a hashmap with the usernames as keys and the extensions for each users as array. Defaults to `{}` so no extensions are installed. This is now deprecated. Build a wrapper cookbook and use the resources
 Example: `['codenamephp']['dev']['vscode']['extensions'] = {'user1' => ['ext1', 'ext2']}`
 
@@ -103,7 +100,7 @@ end
 ```
 
 ### VisualStudio Code
-The `codenamephp_dev_vscode` resource installs or uninstalls the [VisualStudio Code][vscode_url] IDE and extensions. The IDE and extensions are installed by the 
+The `codenamephp_dev_vscode` resource installs or uninstalls the [VisualStudio Code][vscode_url] IDE and extensions. The IDE and extensions are installed by the
 `codenamephp_dev_vscode_extensions` resource.  Both are extensions to the resources in the [sc_vscode Cookbook by Sous Chefs][sc_vscode_url].
 
 #### Actions
@@ -163,15 +160,6 @@ The default cookbook (as stated multiple times) is a No-Op. Pick and choose the 
 ### Chrome
 Adds the google apt repository and installs [Google Chrome][chrome_url] from package.
 
-### DNSMasq
-This recipe is deprecated.
-
-Purges the [Avahi Deamon][avahi_url] which is installed at least on Ubuntu and tends to occupy ports. Also the [resolver Cookbook][resolver_url]
-is used to add localhost, [Google DNS][google_dns_url] and `10.0.2.3` which is needed in [VirtualBox][virutalbox_url] for network operations to work.
-The IPs can be overridden/added to via the attributes.
-
-At last, [DNSMasq][dnsmasq_url] is installed and the local domain and all subdomains is resolved to `127.0.0.1`.
-
 ### gnome-terminal
 Just installs the gnome-terminal from package.
 
@@ -188,10 +176,7 @@ login.
 
 [chrome_url]: https://www.google.de/chrome
 [vscode_url]: https://code.visualstudio.com/
-[dnsmasq_url]: https://wiki.archlinux.de/title/Dnsmasq
 [gnome-terminal_url]: https://en.wikipedia.org/wiki/GNOME_Terminal
-[resolver_url]: https://supermarket.chef.io/cookbooks/resolver
-[avahi_url]: https://wiki.ubuntuusers.de/Avahi/
 [google_dns_url]: https://developers.google.com/speed/public-dns/
 [virtualbox_url]: https://www.virtualbox.org/
 [sc_vscode_url]:  https://github.com/sous-chefs/vscode

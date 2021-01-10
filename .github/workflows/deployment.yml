@@ -1,0 +1,111 @@
+name: Deployment
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    name: Deploy to chef server and supermarket
+    runs-on: ubuntu-latest
+    env:
+      CHEF_LICENSE: accept-no-persist
+    steps:
+      - name: start deployment
+        uses: bobheadxi/deployments@v0.4.3
+        id: start_deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: release
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: install chef
+        uses: actionshub/chef-install@main
+
+      - name: Create key
+        run: 'echo "$CHEF_KEY" > codenamephp.pem'
+        env:
+          CHEF_KEY: ${{secrets.CHEF_KEY}}
+
+      - name: Install spork
+        run: chef exec gem install knife-spork
+
+      - name: Get cookbook name
+        id: get_cookbook_name
+        run: |
+          export COOKBOOK_NAME=`chef exec ruby -e 'require "chef/cookbook/metadata"; metadata = Chef::Cookbook::Metadata.new; metadata.from_file("metadata.rb"); puts metadata.name'`
+          echo "::set-output name=cookbook_name::$COOKBOOK_NAME"
+
+      - name: Check cookbook version in metadata
+        run: knife spork check ${{ steps.get_cookbook_name.outputs.cookbook_name }} -o .. --fail
+
+      - name: Deploy to supermarket
+        run: knife supermarket share ${{ steps.get_cookbook_name.outputs.cookbook_name }} -o ..
+
+      - name: Deploy to chef server
+        run: berks install && berks upload -e test
+
+      - name: update deployment status
+        uses: bobheadxi/deployments@v0.4.3
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.start_deployment.outputs.deployment_id }}
+
+  update_default_branch:
+    name: Update default branch after published release
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: "main"
+
+      - name: create changelog
+        uses: charmixer/auto-changelog-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exclude_labels: "duplicate,question,invalid,wontfix,skip-changelog"
+
+      - name: commit updated changelog
+        uses: EndBug/add-and-commit@v6.2.0
+        with:
+          message: "[CHANGELOG] Updated changelog"
+          add: "CHANGELOG.md"
+          signoff: true
+          branch: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create pull request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "release"
+          destination_branch: "main"
+          pr_title: "[Deployment] Update default branch"
+          pr_label: "skip-changelog"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  rollback_on_failure:
+    name: Rollback on failure
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: failure()
+    steps:
+      - name: Delete tag
+        uses: dev-drprasad/delete-tag-and-release@v0.1.2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set release to draft
+        uses: tubone24/update_release@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          draft: true
