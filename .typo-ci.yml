@@ -1,0 +1,13 @@
+---
+
+dictionaries:
+  - en
+
+excluded_files:
+  - "*.enc"
+  - ".typo-ci.yml"
+
+# Any typos we should ignore?
+excluded_words:
+  - eamodio
+  - timedatectl
