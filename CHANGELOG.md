@@ -59,10 +59,6 @@
 
 - Added cookbook name to jetbrains x11 [\#36](https://github.com/codenamephp/chef.cookbook.dev/pull/36) ([bastianschwarz](https://github.com/bastianschwarz))
 
-**Merged pull requests:**
-
-- \[RELEASE\] 2.4.0 [\#30](https://github.com/codenamephp/chef.cookbook.dev/pull/30) ([github-actions[bot]](https://github.com/apps/github-actions))
-
 ## [2.4.1](https://github.com/codenamephp/chef.cookbook.dev/tree/2.4.1) (2020-06-26)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.4.0...2.4.1)
@@ -92,6 +88,7 @@
 **Merged pull requests:**
 
 - \[RELEASE\] 2.4.1 [\#31](https://github.com/codenamephp/chef.cookbook.dev/pull/31) ([github-actions[bot]](https://github.com/apps/github-actions))
+- \[RELEASE\] 2.4.0 [\#30](https://github.com/codenamephp/chef.cookbook.dev/pull/30) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [v2.3.0](https://github.com/codenamephp/chef.cookbook.dev/tree/v2.3.0) (2019-12-09)
 
