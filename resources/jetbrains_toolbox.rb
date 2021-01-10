@@ -48,6 +48,13 @@ action :install do
     action :delete
   end
 
+  directory '/etc/X11/Xsession.d' do
+    recursive true
+    owner 'root'
+    group 'root'
+    action :create
+  end
+
   template 'install jetrbains toolbox run on boot with x11 session' do
     source 'jetbrains_toolbox/xsession.erb'
     cookbook 'codenamephp_dev'
@@ -60,6 +67,13 @@ action :install do
     )
     action :create
     only_if { ::File.exist?("#{new_resource.toolbox_path}/app") }
+  end
+
+  directory '/etc/xdg/autostart' do
+    recursive true
+    owner 'root'
+    group 'root'
+    action :create
   end
 
   template 'install jetbrains toolbox run on boot with xdg autostart' do
