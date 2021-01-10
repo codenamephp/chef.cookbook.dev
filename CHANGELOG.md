@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.1](https://github.com/codenamephp/chef.cookbook.dev/tree/3.0.1) (2021-01-10)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/3.0.0...3.0.1)
+
+**Merged pull requests:**
+
+- Making sure folders exist before installing autostart directories [\#52](https://github.com/codenamephp/chef.cookbook.dev/pull/52) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [3.0.0](https://github.com/codenamephp/chef.cookbook.dev/tree/3.0.0) (2021-01-10)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.5.1...3.0.0)
