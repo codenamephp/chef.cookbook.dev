@@ -14,9 +14,30 @@ describe 'codenamephp_dev_jetbrains_toolbox' do
       expect { chef_run }.to_not raise_error
     end
 
+    it 'creates x11 template' do
+      allow(File).to receive(:exist?).and_call_original
+      allow(File).to receive(:exist?).with('/usr/share/jetbrains-toolbox/app').and_return(true)
+
+      expect(chef_run).to create_directory('/etc/X11/Xsession.d').with(recursive: true, owner: 'root', group: 'root')
+
+      expect(chef_run).to create_template('install jetrbains toolbox run on boot with x11 session').with(
+        source: 'jetbrains_toolbox/xsession.erb',
+        cookbook: 'codenamephp_dev',
+        path: '/etc/X11/Xsession.d/100-jetbrains-toolbox',
+        owner: 'root',
+        group: 'root',
+        mode: '0777',
+        variables: {
+          toolbox_path: '/usr/share/jetbrains-toolbox',
+        }
+      )
+    end
+
     it 'creates xdg template' do
       allow(File).to receive(:exist?).and_call_original
       allow(File).to receive(:exist?).with('/usr/share/jetbrains-toolbox/app').and_return(true)
+
+      expect(chef_run).to create_directory('/etc/xdg/autostart').with(recursive: true, owner: 'root', group: 'root')
 
       expect(chef_run).to create_template('install jetbrains toolbox run on boot with xdg autostart').with(
         source: 'jetbrains_toolbox/xdg.erb',
