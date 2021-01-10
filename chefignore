@@ -2,8 +2,13 @@
 # or sharing to the community site.
 # Lines that start with '# ' are comments.
 
+chefignore
 *.pem
 *.pem.enc
+.travis.yml
+.chef
+.rubocop
+.typo-ci.yml
 
 # OS generated files #
 ######################
@@ -86,7 +91,7 @@ CONTRIBUTING
 CHANGELOG*
 TESTING*
 MAINTAINERS.toml
-.kitchen*.yml
+kitchen*.yml
 *.pem
 
 # Strainer #

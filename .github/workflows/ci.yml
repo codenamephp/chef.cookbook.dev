@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - release
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    branches:
+      - main
+      - release
+    paths-ignore:
+      - "**.md"
+
+env:
+  CHEF_LICENSE: accept-no-persist
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: install chef
+        uses: actionshub/chef-install@main
+      - name: Create key
+        run: 'echo "$CHEF_KEY" > codenamephp.pem'
+        shell: bash
+        env:
+          CHEF_KEY: ${{secrets.CHEF_KEY}}
+      - name: Cookstyle
+        run: chef exec cookstyle
+      - name: UnitTests
+        run: chef exec rspec
+      - name: IntegrationTests
+        env:
+          KITCHEN_LOCAL_YAML: kitchen.dokken.yml
+        run: chef exec kitchen test
