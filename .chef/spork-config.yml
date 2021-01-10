@@ -1,0 +1,5 @@
+plugins:
+  git:
+    enabled: false
+  foodcritic:
+    enabled: false
