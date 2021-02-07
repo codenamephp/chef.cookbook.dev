@@ -49,12 +49,11 @@ jobs:
           release_branch: 'release'
 
       - name: commit updated changelog
-        uses: EndBug/add-and-commit@v6.2.0
+        uses: EndBug/add-and-commit@v7
         with:
           message: "[CHANGELOG] Updated changelog"
           add: "CHANGELOG.md"
           signoff: true
-          token: ${{ secrets.GITHUB_TOKEN }}
 
   bump_cookbook_version:
     name: Bump cookbook version and check upload
@@ -94,9 +93,8 @@ jobs:
         run: knife supermarket share ${{ steps.get_cookbook_name.outputs.cookbook_name }} -o .. --dry-run
 
       - name: commit bumped metadata
-        uses: EndBug/add-and-commit@v6.2.0
+        uses: EndBug/add-and-commit@v7
         with:
           message: "[METADATA] Updated version"
           add: "metadata.rb"
           signoff: true
-          token: ${{ secrets.GITHUB_TOKEN }}
