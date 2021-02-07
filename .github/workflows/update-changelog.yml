@@ -25,4 +25,3 @@ jobs:
           message: "[CHANGELOG] Updated changelog"
           add: "CHANGELOG.md"
           signoff: true
-          token: ${{ secrets.GITHUB_TOKEN }}
