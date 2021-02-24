@@ -11,7 +11,7 @@ jobs:
       CHEF_LICENSE: accept-no-persist
     steps:
       - name: start deployment
-        uses: bobheadxi/deployments@v0.4.3
+        uses: bobheadxi/deployments@v0.5.1
         id: start_deployment
         with:
           step: start
@@ -48,7 +48,7 @@ jobs:
         run: berks install && berks upload -e test
 
       - name: update deployment status
-        uses: bobheadxi/deployments@v0.4.3
+        uses: bobheadxi/deployments@v0.5.1
         if: always()
         with:
           step: finish
