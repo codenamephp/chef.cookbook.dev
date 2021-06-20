@@ -89,6 +89,10 @@
 
 - \[RELEASE\] 2.4.1 [\#31](https://github.com/codenamephp/chef.cookbook.dev/pull/31) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[RELEASE\] 2.4.0 [\#30](https://github.com/codenamephp/chef.cookbook.dev/pull/30) ([github-actions[bot]](https://github.com/apps/github-actions))
+- \[RELEASE 2.3.0\] [\#24](https://github.com/codenamephp/chef.cookbook.dev/pull/24) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 2.2.0\] [\#22](https://github.com/codenamephp/chef.cookbook.dev/pull/22) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 2.1.1\] [\#20](https://github.com/codenamephp/chef.cookbook.dev/pull/20) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 2.1.1\] [\#19](https://github.com/codenamephp/chef.cookbook.dev/pull/19) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v2.3.0](https://github.com/codenamephp/chef.cookbook.dev/tree/v2.3.0) (2019-12-09)
 
@@ -98,10 +102,6 @@
 
 - Install JetBrains toolbox [\#23](https://github.com/codenamephp/chef.cookbook.dev/issues/23)
 
-**Merged pull requests:**
-
-- \[RELEASE 2.3.0\] [\#24](https://github.com/codenamephp/chef.cookbook.dev/pull/24) ([bastianschwarz](https://github.com/bastianschwarz))
-
 ## [v2.2.0](https://github.com/codenamephp/chef.cookbook.dev/tree/v2.2.0) (2019-12-06)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/v2.1.1...v2.2.0)
@@ -109,10 +109,6 @@
 **Implemented enhancements:**
 
 - Migrate vscode to https://github.com/sous-chefs/vscode [\#21](https://github.com/codenamephp/chef.cookbook.dev/issues/21)
-
-**Merged pull requests:**
-
-- \[RELEASE 2.2.0\] [\#22](https://github.com/codenamephp/chef.cookbook.dev/pull/22) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v2.1.1](https://github.com/codenamephp/chef.cookbook.dev/tree/v2.1.1) (2019-12-05)
 
@@ -122,11 +118,6 @@
 
 - Move to debian buster [\#18](https://github.com/codenamephp/chef.cookbook.dev/issues/18)
 - Fix build [\#17](https://github.com/codenamephp/chef.cookbook.dev/issues/17)
-
-**Merged pull requests:**
-
-- \[RELEASE 2.1.1\] [\#20](https://github.com/codenamephp/chef.cookbook.dev/pull/20) ([bastianschwarz](https://github.com/bastianschwarz))
-- \[RELEASE 2.1.1\] [\#19](https://github.com/codenamephp/chef.cookbook.dev/pull/19) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v2.1.0](https://github.com/codenamephp/chef.cookbook.dev/tree/v2.1.0) (2018-08-26)
 
