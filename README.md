@@ -3,6 +3,11 @@
 
 Cookbook that contains recipes for dev tools, like vscode, chrome, openjdk ...
 
+## Deprecated
+
+The cookbook is deprecated and will only receive bugfixes. The resources will be moved to dedicated cookbooks. The "single package"
+recipes should be implemented within wrapper cookbooks since they don't warrent dedicated cookbooks.
+
 ## Requirements
 
 ### Supported Platforms

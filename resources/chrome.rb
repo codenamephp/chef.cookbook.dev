@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+deprecated 'This cookbook is depreacted. The resources will be moved to dedicated cookbooks'
+
 unified_mode true
 
 action :install do
