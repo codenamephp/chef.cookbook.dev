@@ -24,7 +24,6 @@ suites:
     attributes:
   - name: shortcut_recipes
     run_list:
-      - recipe[test::init_users]
       - recipe[codenamephp_dev::chrome]
     verifier:
       inspec_tests:
