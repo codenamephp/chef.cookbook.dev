@@ -71,7 +71,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           exclude_labels: "duplicate,question,invalid,wontfix,skip-changelog"
-
+          release_branch: "main"
       - name: commit updated changelog
         uses: EndBug/add-and-commit@v7
         with:
