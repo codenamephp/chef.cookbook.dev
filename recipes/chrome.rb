@@ -6,7 +6,7 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-log 'This recipe is deprecated. Use the resource instead.' do
+log 'This cookbook is deprecated. Use the dedicated cookbooks instead.' do
   level :warn
 end
 
