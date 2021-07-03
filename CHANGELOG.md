@@ -2,8 +2,6 @@
 
 ## [4.0.0](https://github.com/codenamephp/chef.cookbook.dev/tree/4.0.0) (2021-07-03)
 
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/3.0.1...4.0.0)
-
 **Implemented enhancements:**
 
 - Extensions report uninstalled when converge doesn't change anything [\#35](https://github.com/codenamephp/chef.cookbook.dev/issues/35)
@@ -15,6 +13,14 @@
 - Bump bobheadxi/deployments from 0.4.3 to 0.6.0 [\#65](https://github.com/codenamephp/chef.cookbook.dev/pull/65) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump dev-drprasad/delete-tag-and-release from 0.1.3 to 0.2.0 [\#63](https://github.com/codenamephp/chef.cookbook.dev/pull/63) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump tubone24/update\_release from 1.1.0 to 1.2.0 [\#60](https://github.com/codenamephp/chef.cookbook.dev/pull/60) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [4.0.0](https://github.com/codenamephp/chef.cookbook.dev/tree/4.0.0) (2021-07-03)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/3.0.1...4.0.0)
+
+**Implemented enhancements:**
+
+- Extensions report uninstalled when converge doesn't change anything [\#35](https://github.com/codenamephp/chef.cookbook.dev/issues/35)
 
 ## [3.0.1](https://github.com/codenamephp/chef.cookbook.dev/tree/3.0.1) (2021-01-10)
 
