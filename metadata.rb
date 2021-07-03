@@ -11,5 +11,3 @@ issues_url 'https://github.com/codenamephp/chef.cookbook.dev/issues'
 source_url 'https://github.com/codenamephp/chef.cookbook.dev'
 
 supports 'debian'
-
-depends 'sc_vscode', '~>1.0'
