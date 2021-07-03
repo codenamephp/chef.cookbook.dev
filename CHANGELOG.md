@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- Marked everything as deprecated [\#68](https://github.com/codenamephp/chef.cookbook.dev/pull/68) ([bastianschwarz](https://github.com/bastianschwarz))
 - Remove vs code [\#67](https://github.com/codenamephp/chef.cookbook.dev/pull/67) ([bastianschwarz](https://github.com/bastianschwarz))
 - Bump bobheadxi/deployments from 0.4.3 to 0.6.0 [\#65](https://github.com/codenamephp/chef.cookbook.dev/pull/65) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump dev-drprasad/delete-tag-and-release from 0.1.3 to 0.2.0 [\#63](https://github.com/codenamephp/chef.cookbook.dev/pull/63) ([dependabot[bot]](https://github.com/apps/dependabot))
