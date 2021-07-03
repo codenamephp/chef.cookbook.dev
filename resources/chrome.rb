@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+unified_mode true
+
 action :install do
   apt_repository 'google-chrome' do
     uri 'http://dl.google.com/linux/chrome/deb/'

@@ -22,30 +22,11 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
-  - name: vscode
-    run_list:
-      - recipe[test::vscode]
-    verifier:
-      inspec_tests:
-        - test/smoke/vscode
-    attributes:
   - name: shortcut_recipes
     run_list:
-      - recipe[test::init_users]
-      - recipe[codenamephp_dev::vscode]
       - recipe[codenamephp_dev::chrome]
     verifier:
       inspec_tests:
         - test/smoke/default
-        - test/smoke/vscode
       controls:
-        - vscode-1.0
         - chrome-1.0
-    attributes:
-      codenamephp:
-        dev:
-          vscode:
-            extensions: {
-              user1: [eamodio.gitlens, chef-software.chef],
-              user2: [davidanson.vscode-markdownlint, github.vscode-pull-request-github]
-            }
