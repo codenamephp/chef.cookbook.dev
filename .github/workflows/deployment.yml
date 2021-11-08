@@ -103,7 +103,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set release to draft
-        uses: tubone24/update_release@v1.2.0
+        uses: tubone24/update_release@v1.3.1
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
