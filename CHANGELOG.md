@@ -1,18 +1,13 @@
 # Changelog
 
-## [4.0.0](https://github.com/codenamephp/chef.cookbook.dev/tree/4.0.0) (2021-07-03)
+## [4.0.1](https://github.com/codenamephp/chef.cookbook.dev/tree/4.0.1) (2021-11-08)
 
-**Implemented enhancements:**
-
-- Extensions report uninstalled when converge doesn't change anything [\#35](https://github.com/codenamephp/chef.cookbook.dev/issues/35)
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/4.0.0...4.0.1)
 
 **Merged pull requests:**
 
-- Marked everything as deprecated [\#68](https://github.com/codenamephp/chef.cookbook.dev/pull/68) ([bastianschwarz](https://github.com/bastianschwarz))
-- Remove vs code [\#67](https://github.com/codenamephp/chef.cookbook.dev/pull/67) ([bastianschwarz](https://github.com/bastianschwarz))
-- Bump bobheadxi/deployments from 0.4.3 to 0.6.0 [\#65](https://github.com/codenamephp/chef.cookbook.dev/pull/65) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump dev-drprasad/delete-tag-and-release from 0.1.3 to 0.2.0 [\#63](https://github.com/codenamephp/chef.cookbook.dev/pull/63) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump tubone24/update\_release from 1.1.0 to 1.2.0 [\#60](https://github.com/codenamephp/chef.cookbook.dev/pull/60) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump bobheadxi/deployments from 0.6.0 to 0.6.1 [\#72](https://github.com/codenamephp/chef.cookbook.dev/pull/72) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump tubone24/update\_release from 1.2.0 to 1.3.1 [\#71](https://github.com/codenamephp/chef.cookbook.dev/pull/71) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [4.0.0](https://github.com/codenamephp/chef.cookbook.dev/tree/4.0.0) (2021-07-03)
 
@@ -21,6 +16,15 @@
 **Implemented enhancements:**
 
 - Extensions report uninstalled when converge doesn't change anything [\#35](https://github.com/codenamephp/chef.cookbook.dev/issues/35)
+- Add unified\_mode [\#66](https://github.com/codenamephp/chef.cookbook.dev/pull/66) ([bastianschwarz](https://github.com/bastianschwarz))
+
+**Merged pull requests:**
+
+- Marked everything as deprecated [\#68](https://github.com/codenamephp/chef.cookbook.dev/pull/68) ([bastianschwarz](https://github.com/bastianschwarz))
+- Remove vs code [\#67](https://github.com/codenamephp/chef.cookbook.dev/pull/67) ([bastianschwarz](https://github.com/bastianschwarz))
+- Bump bobheadxi/deployments from 0.4.3 to 0.6.0 [\#65](https://github.com/codenamephp/chef.cookbook.dev/pull/65) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump dev-drprasad/delete-tag-and-release from 0.1.3 to 0.2.0 [\#63](https://github.com/codenamephp/chef.cookbook.dev/pull/63) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump tubone24/update\_release from 1.1.0 to 1.2.0 [\#60](https://github.com/codenamephp/chef.cookbook.dev/pull/60) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [3.0.1](https://github.com/codenamephp/chef.cookbook.dev/tree/3.0.1) (2021-01-10)
 
@@ -49,10 +53,6 @@
 ## [2.5.1](https://github.com/codenamephp/chef.cookbook.dev/tree/2.5.1) (2020-10-10)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/2.5.0...2.5.1)
-
-**Implemented enhancements:**
-
-- Add unified\_mode [\#66](https://github.com/codenamephp/chef.cookbook.dev/pull/66) ([bastianschwarz](https://github.com/bastianschwarz))
 
 **Fixed bugs:**
 
