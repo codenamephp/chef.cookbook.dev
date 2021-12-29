@@ -1,11 +1,12 @@
 # Changelog
 
-## [4.0.1](https://github.com/codenamephp/chef.cookbook.dev/tree/4.0.1) (2021-11-08)
+## [4.0.1](https://github.com/codenamephp/chef.cookbook.dev/tree/4.0.1) (2021-12-29)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/4.0.0...4.0.1)
 
 **Merged pull requests:**
 
+- Bump bobheadxi/deployments from 0.6.1 to 0.6.2 [\#73](https://github.com/codenamephp/chef.cookbook.dev/pull/73) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump bobheadxi/deployments from 0.6.0 to 0.6.1 [\#72](https://github.com/codenamephp/chef.cookbook.dev/pull/72) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump tubone24/update\_release from 1.2.0 to 1.3.1 [\#71](https://github.com/codenamephp/chef.cookbook.dev/pull/71) ([dependabot[bot]](https://github.com/apps/dependabot))
 
