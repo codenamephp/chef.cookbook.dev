@@ -67,7 +67,7 @@ jobs:
           ref: "main"
 
       - name: create changelog
-        uses: charmixer/auto-changelog-action@v1
+        uses: charmixer/auto-changelog-action@v1.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           exclude_labels: "duplicate,question,invalid,wontfix,skip-changelog"
